@@ -5,6 +5,7 @@ import net.objecthunter.exp4j.ExpressionBuilder;
 
 public class Trapezio {
 
+	//Metodo que recebe um numero e uma funcao definida em termos de "x"(f(x)), calcula e retorna f(numero)
 	public static double funcao(double numero, String funcao){
 		Expression e = new ExpressionBuilder(funcao)
 				.variable("x")
@@ -14,14 +15,16 @@ public class Trapezio {
 	}
 	
 	
-	public static double calculaIntegral(double a, double b, double n, String funcao){
+	public static double calculaIntegral(double a, double b, double n, String expressao){
 
-		double h = (b-a)/n;
-		double resultado = 0;
-		double x = a; //Onde comeca a calcular a altura, variavel de incremento
+		double h = (b-a)/n; //Altura.
+		double resultado = 0; //Resultado. Sera retornado no final como a soma da area de todas as particoes
+		double x = a; //Variavel de incremento usada para calcular o f(x), que serao as bases de cada trapezio.
 		
+		
+		//Soma das areas de todos os trapezios. O calculo das bases dos trapezios e dado em funcao do x.
 		for (int i = 0; i < n; i++){
-			resultado += (funcao(x, funcao) + funcao(x+h, funcao)) * h/2;
+			resultado += (funcao(x, expressao) + funcao(x+h, expressao)) * h/2; //
 			x = x + h;
 		}
 		
