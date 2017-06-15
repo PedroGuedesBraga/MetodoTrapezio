@@ -34,7 +34,6 @@ public class Trapezio {
 	
 	
 	public static void main(String[] args) {
-		Trapezio trapezio = new Trapezio();
 		
 		System.out.println(calculaIntegral(1,2,200000,"x^9"));
 	}
